@@ -40,7 +40,7 @@ jobs:
 
       - name: Set up Database
         run: |
-          cp config/database.yml.ci config/database.yml
+          cp config/database.yml
           bundle exec rails db:create db:migrate
 
       - name: Run RSpec tests
