@@ -22,7 +22,6 @@ func init() {
 
 func RegisterUser(c *gin.Context) {
 	var user models.User
-	// Decode JSON request into user struct.
 	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request payload"})
 		return
