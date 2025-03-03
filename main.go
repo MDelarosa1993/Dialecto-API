@@ -3,6 +3,7 @@ package main
 import (
 	"Dialecto-API/db"
 	"Dialecto-API/handlers"
+	"Dialecto-API/middlewares"
 	"Dialecto-API/models"
 	"log"
 	"net/http"
@@ -19,6 +20,8 @@ func main() {
 
 	gin.SetMode(gin.DebugMode)
 	router := gin.Default()
+
+	router.Use(middlewares.CORSMiddleware())
 
 	router.POST("/register", handlers.RegisterUser)
 	router.POST("/login", handlers.LoginUser)
